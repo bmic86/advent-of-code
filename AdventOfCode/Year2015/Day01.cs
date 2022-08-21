@@ -1,22 +1,9 @@
 ﻿using AoCHelper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode.Year2015
 {
     public class Day01 : BaseDay
     {
-        private int GetFloorChange(char symbol)
-            => symbol switch
-            {
-                '(' => 1,
-                ')' => -1,
-                _ => 0,
-            };
-
         public override ValueTask<string> Solve_1()
         {
             string input = File.ReadAllText(InputFilePath);
@@ -45,5 +32,13 @@ namespace AdventOfCode.Year2015
 
             return new("No result.");
         }
+
+        private static int GetFloorChange(char symbol)
+            => symbol switch
+            {
+                '(' => 1,
+                ')' => -1,
+                _ => 0,
+            };
     }
 }
