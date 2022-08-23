@@ -15,7 +15,7 @@ namespace AdventOfCode.Year2015
     {
         public override ValueTask<string> Solve_1()
         {
-            string[] inputLines = ReadInput();
+            string[] inputLines = File.ReadAllLines(InputFilePath);
 
             int result = inputLines
                 .Select(line => CalculateRequiredPaperArea(Box.Parse(line)))
@@ -26,7 +26,7 @@ namespace AdventOfCode.Year2015
 
         public override ValueTask<string> Solve_2()
         {
-            string[] inputLines = ReadInput();
+            string[] inputLines = File.ReadAllLines(InputFilePath);
 
             int result = inputLines
                 .Select(line => CalculateRequiredRibbonLength(Box.Parse(line)))
@@ -34,11 +34,6 @@ namespace AdventOfCode.Year2015
 
             return new(result.ToString());
         }
-
-        private string[] ReadInput()
-            => File
-                .ReadAllText(InputFilePath)
-                .Split('\n', StringSplitOptions.RemoveEmptyEntries);
 
         private static int CalculateRequiredPaperArea(Box box)
         {
