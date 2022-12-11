@@ -29,7 +29,7 @@ namespace AdventOfCode.Year2015
             return new(SumAllNumbers(input).ToString());
         }
 
-        private string RemoveInvalidData(string inputData)
+        private static string RemoveInvalidData(string inputData)
         {
             var state = new State();
             var buffer = new Span<char>(new char[inputData.Length]);
@@ -57,7 +57,7 @@ namespace AdventOfCode.Year2015
             return buffer.Slice(0, state.BufferPosition).ToString();
         }
 
-        private void PropertyValueStart(State state, bool isInvalid)
+        private static void PropertyValueStart(State state, bool isInvalid)
         {
             if (isInvalid)
             {
