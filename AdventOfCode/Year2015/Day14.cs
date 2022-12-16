@@ -8,6 +8,12 @@ namespace AdventOfCode.Year2015
     {
         private record Reindeer(string Name, int Speed, int FlyTime, int RestTime);
 
+        private class Score
+        {
+            public int Distance { get; set; }
+            public int Points { get; set; }
+        }
+
         private const int RaceTime = 2503;
 
         private readonly List<Reindeer> _reindeers;
@@ -25,7 +31,36 @@ namespace AdventOfCode.Year2015
 
         public override ValueTask<string> Solve_2()
         {
-            throw new NotImplementedException();
+            Dictionary<string, Score> scoreBoard = _reindeers
+                .ToDictionary(r => r.Name, r => new Score());
+
+            for (int i = 0; i < RaceTime; ++i)
+            {
+                int maxTotalDistance = int.MinValue;
+                foreach (var rendieer in _reindeers)
+                {
+                    int time = rendieer.FlyTime + rendieer.RestTime;
+                    bool isMoving = (i % time) < rendieer.FlyTime;
+                    if (isMoving)
+                    {
+                        scoreBoard[rendieer.Name].Distance += rendieer.Speed;
+                    }
+
+                    maxTotalDistance = Math.Max(
+                        scoreBoard[rendieer.Name].Distance,
+                        maxTotalDistance);
+                }
+
+                foreach (var score in scoreBoard)
+                {
+                    if (score.Value.Distance == maxTotalDistance)
+                    {
+                        score.Value.Points += 1;
+                    }
+                }
+            }
+
+            return new(scoreBoard.Max(x => x.Value.Points).ToString());
         }
 
         private List<Reindeer> LoadData()
