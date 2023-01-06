@@ -1,9 +1,8 @@
-﻿using AoCHelper;
+﻿using AdventOfCode.Common;
+using AoCHelper;
 
 namespace AdventOfCode.Year2015
 {
-    public record struct GridCoords(int X, int Y);
-
     public class Day03 : BaseDay
     {
         public override ValueTask<string> Solve_1()
