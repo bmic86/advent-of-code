@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode\Year2015", "AdventOfCode\Year2015\Year2015.csproj", "{4772EF55-C186-43EB-BA2E-8E053062337F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Year2015", "AdventOfCode\Year2015\Year2015.csproj", "{4772EF55-C186-43EB-BA2E-8E053062337F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode\Year2016", "AdventOfCode\Year2016\Year2016.csproj", "{6F312C01-DCA0-4FBE-97F7-8A036F013896}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Year2016", "AdventOfCode\Year2016\Year2016.csproj", "{6F312C01-DCA0-4FBE-97F7-8A036F013896}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode\Common", "AdventOfCode\Common\Common.csproj", "{E405ABED-A79F-4C41-9E1A-9F0800071B15}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "AdventOfCode\Common\Common.csproj", "{E405ABED-A79F-4C41-9E1A-9F0800071B15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Year2017", "AdventOfCode\Year2017\Year2017.csproj", "{F72B0A73-BD68-4CE3-B652-23185AE45506}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{E405ABED-A79F-4C41-9E1A-9F0800071B15}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E405ABED-A79F-4C41-9E1A-9F0800071B15}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E405ABED-A79F-4C41-9E1A-9F0800071B15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F72B0A73-BD68-4CE3-B652-23185AE45506}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F72B0A73-BD68-4CE3-B652-23185AE45506}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F72B0A73-BD68-4CE3-B652-23185AE45506}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F72B0A73-BD68-4CE3-B652-23185AE45506}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
