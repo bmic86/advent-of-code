@@ -1,5 +1,4 @@
 ﻿using AoCHelper;
-using System.Linq;
 
 namespace AdventOfCode.Year2021
 {
@@ -20,7 +19,7 @@ namespace AdventOfCode.Year2021
             return new(SumIncreasingDepths(sums).ToString());
         }
 
-        private int SumIncreasingDepths(IEnumerable<int> depths)
+        private static int SumIncreasingDepths(IEnumerable<int> depths)
             => depths
                 .Skip(1)
                 .Aggregate(
@@ -37,7 +36,7 @@ namespace AdventOfCode.Year2021
 
         private List<int> SumDepthsInSliceWindow()
         {
-            List<int> depthSums = new List<int>();
+            List<int> depthSums = new();
             for (int i = 0; i <= _depths.Length - SliceWindowSize; i++)
             {
                 int sum = _depths[i..(i + SliceWindowSize)].Sum();
