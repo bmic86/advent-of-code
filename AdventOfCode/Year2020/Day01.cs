@@ -1,6 +1,6 @@
 ﻿using AoCHelper;
 
-namespace Year2020
+namespace AdventOfCode.Year2020
 {
     public class Day01 : BaseDay
     {
