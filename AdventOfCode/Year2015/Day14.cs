@@ -77,10 +77,10 @@ namespace AdventOfCode.Year2015
 
         private static int CalculateDistance(Reindeer reindeer, int raceTime)
         {
-            int moveLenght = reindeer.FlyTime + reindeer.RestTime;
-            int moves = raceTime / moveLenght;
+            int moveLength = reindeer.FlyTime + reindeer.RestTime;
+            int moves = raceTime / moveLength;
 
-            int fullMovesTime = moves * moveLenght;
+            int fullMovesTime = moves * moveLength;
             int partialMoveTime = raceTime - fullMovesTime;
 
             int effectiveFlyTime = moves * reindeer.FlyTime + Math.Min(partialMoveTime, reindeer.FlyTime);
