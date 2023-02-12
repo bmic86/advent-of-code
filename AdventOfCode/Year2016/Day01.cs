@@ -16,8 +16,8 @@ namespace AdventOfCode.Year2016
             West = 3,
         }
 
-        private readonly IReadOnlyDictionary<WorldDirection, GridCoords> WorldDirectionCoords =
-            new Dictionary<WorldDirection, GridCoords>()
+        private readonly IReadOnlyDictionary<WorldDirection, Vector2Int> WorldDirectionCoords =
+            new Dictionary<WorldDirection, Vector2Int>()
             {
                 { WorldDirection.North, new(0, -1) },
                 { WorldDirection.East, new(1, 0) },
@@ -31,7 +31,7 @@ namespace AdventOfCode.Year2016
 
         public override ValueTask<string> Solve_1()
         {
-            GridCoords currentPosition = new(0, 0);
+            Vector2Int currentPosition = new(0, 0);
             var facingDirection = WorldDirection.North;
 
             foreach (var move in _moves)
@@ -44,14 +44,15 @@ namespace AdventOfCode.Year2016
                     move.Steps);
             }
 
-            return new(DistanceFromStartPosition(currentPosition).ToString());
+            int result = currentPosition.GetManhattanDistanceFromOrigin();
+            return new(result.ToString());
         }
 
         public override ValueTask<string> Solve_2()
         {
-            HashSet<GridCoords> visited = new();
+            HashSet<Vector2Int> visited = new();
 
-            GridCoords currentPosition = new(0, 0);
+            Vector2Int currentPosition = new(0, 0);
             var facingDirection = WorldDirection.North;
 
             foreach (var move in _moves)
@@ -66,7 +67,8 @@ namespace AdventOfCode.Year2016
 
                     if (visited.Contains(currentPosition))
                     {
-                        return new(DistanceFromStartPosition(currentPosition).ToString());
+                        int result = currentPosition.GetManhattanDistanceFromOrigin();
+                        return new(result.ToString());
                     }
 
                     visited.Add(currentPosition);
@@ -76,18 +78,13 @@ namespace AdventOfCode.Year2016
             return new("No result.");
         }
 
-        private static GridCoords GetNextPosition(
-            GridCoords currentPosition,
-            GridCoords directionCoords,
+        private static Vector2Int GetNextPosition(
+            Vector2Int currentPosition,
+            Vector2Int directionCoords,
             int steps = 1)
         {
-            directionCoords = new(
-                directionCoords.X * steps,
-                directionCoords.Y * steps);
-
-            return new(
-                currentPosition.X + directionCoords.X,
-                currentPosition.Y + directionCoords.Y);
+            directionCoords *= steps;
+            return currentPosition + directionCoords;
         }
 
         private static WorldDirection GetNextFacingDirection(
@@ -102,9 +99,6 @@ namespace AdventOfCode.Year2016
                 _ => (WorldDirection)value
             };
         }
-
-        private static int DistanceFromStartPosition(GridCoords currentPosition)
-            => Math.Abs(currentPosition.X) + Math.Abs(currentPosition.Y);
 
         private List<Move> LoadData()
             => File.ReadAllText(InputFilePath)

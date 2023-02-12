@@ -19,10 +19,10 @@ namespace AdventOfCode.Year2015
 
         private static int CountTotalVisitedHouses(string path, int numOfSantas = 1)
         {
-            HashSet<GridCoords> visited = new() { new GridCoords(0, 0) };
+            HashSet<Vector2Int> visited = new() { new Vector2Int(0, 0) };
 
             int santaIndex = 0;
-            var currentPositions = new GridCoords[numOfSantas];
+            var currentPositions = new Vector2Int[numOfSantas];
 
             foreach (char c in path)
             {
