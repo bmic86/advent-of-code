@@ -1,5 +1,4 @@
 using AoCHelper;
-using System.Security.Claims;
 
 namespace AdventOfCode.Year2018
 {
