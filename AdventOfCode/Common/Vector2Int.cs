@@ -1,9 +1,9 @@
 ﻿namespace AdventOfCode.Common
 {
-    public record struct Vector2Int(int X, int Y)
+    public record struct Vector2Int(int X = 0, int Y = 0)
     {
         public static Vector2Int operator +(Vector2Int a, Vector2Int b)
-            => new (a.X + b.X, a.Y + b.Y);
+            => new(a.X + b.X, a.Y + b.Y);
 
         public static Vector2Int operator *(Vector2Int a, int mul)
             => new(a.X * mul, a.Y * mul);
