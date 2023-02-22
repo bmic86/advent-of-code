@@ -10,7 +10,10 @@ namespace AdventOfCode.Year2020
         private readonly bool[,] _treeMap;
 
         public Day03()
-            => (_treeMap, _mapWidth, _mapHeight) = LoadTreeMap();
+        {
+            (_treeMap, _mapWidth, _mapHeight)
+                = DataLoader.LoadBoolTable2D(InputFilePath, '#');
+        }
 
         public override ValueTask<string> Solve_1()
         {
@@ -55,28 +58,6 @@ namespace AdventOfCode.Year2020
             }
 
             return treesCount;
-        }
-
-        private (bool[,] Map, int Width, int Height) LoadTreeMap()
-        {
-            string[] lines = File.ReadAllLines(InputFilePath);
-
-            int mapWidth = lines.First().Length;
-            int mapHeight = lines.Length;
-
-            bool[,] treeMap = new bool[mapHeight, mapWidth];
-            for (int y = 0; y < mapHeight; ++y)
-            {
-                for (int x = 0; x < mapWidth; ++x)
-                {
-                    if (lines[y][x] == '#')
-                    {
-                        treeMap[y, x] = true;
-                    }
-                }
-            }
-
-            return (treeMap, mapWidth, mapHeight);
         }
     }
 }
