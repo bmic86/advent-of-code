@@ -58,7 +58,7 @@ namespace AdventOfCode.Year2021
             return new(result.ToString());
         }
 
-        private (int oxygenIndex, int co2Index) FindRatingsIndices()
+        private (int OxygenIndex, int Co2Index) FindRatingsIndices()
         {
             int oxygenIndex = -1;
             int co2Index = -1;
